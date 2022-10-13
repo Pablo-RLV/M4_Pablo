@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 
+
 // 1 -  Faça uma função que recebe uma certa medida e ajusta ela percentualmente 
 // entre dois valores mínimo e máximo e retorna esse valor
 

@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <string>
+using namespace std;
 float ajuste(int valor, int minimo, int maximo){
 	int range = 0;
     int resultado = 0;
@@ -18,6 +20,6 @@ int main(){
     printf("Digite o valor maximo: ");
     scanf("%d", &maximo);
     resultado = ajuste(valor, minimo, maximo);
-    printf("Resultado: %d", resultado, "% \n");
+    printf("Resultado: %d %c %s", resultado, '%', "\n");
     return 0;
 }
