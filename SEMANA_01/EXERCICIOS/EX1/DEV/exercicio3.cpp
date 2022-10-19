@@ -15,8 +15,7 @@ void process(int tamanho){
         }
     }
     printf("Maior valor: %d \n", maior);
-    printf("Ultimo valor: %d \n", ultimo);
-
+    printf("Ultimo valor: %d \n", ultimo);  
 }
 int main(){
     int tamanho = 0;
