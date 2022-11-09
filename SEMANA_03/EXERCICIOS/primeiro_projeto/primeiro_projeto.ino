@@ -1,12 +1,8 @@
-int led1 = 4;
-int led2 = 5;
-int led3 = 6;
-int led4 = 7;
 int porta_sensor = 8;
 int porta_buzzer = 3;
 int botao1 = 9;
 int botao2 = 10;
-int vetor[4] = {led1, led2, led3, led4};
+int vetor_leds[4] = {4, 5, 6, 7};
 int valor_sensor = 0;
 int binario[4]={0,0,0,0};
 int vetor_binario[4] = {0, 0, 0, 0};
@@ -16,7 +12,7 @@ int vetor_frequencia[100];
 void setup() {
   Serial.begin(115200);
   for(int portas=0; portas <= 3; portas++){
-    pinMode(vetor[portas], OUTPUT);
+    pinMode(vetor_leds[portas], OUTPUT);
   }
   pinMode(porta_sensor, INPUT);
   pinMode(porta_buzzer, OUTPUT);
@@ -34,9 +30,9 @@ void ligar_led(int valor_convertido){
     vetor_binario[j] = binario[j];
   }
   for(int portas = 0; portas <=3; portas++){
-    digitalWrite(vetor[portas], vetor_binario[portas + 1]);
+    digitalWrite(vetor_leds[portas], vetor_binario[portas + 1]);
   }
-  delay(100);
+  delay(10);
 }
 void armazena(int valor_convertido_frequencia) {
   vetor_frequencia[f] = valor_convertido_frequencia;
@@ -46,21 +42,22 @@ void leitura_buzzer(){
   int p = 0;
   while (p <= (f - 1)) {
     tone(porta_buzzer, vetor_frequencia[p], 200);
-    ligar_led(vetor_frequencia[p] / 50);
+    ligar_led(vetor_frequencia[p] / 200);
     p++;
   }
 }
 void loop() {
   valor_sensor = analogRead(porta_sensor);
-  int valor_convertido = valor_sensor / 537;
-  int valor_convertido_frequencia = valor_convertido * 50;
+  int valor_convertido = valor_sensor / 273;
+  Serial.println(valor_convertido);
+  int valor_convertido_frequencia = valor_convertido * 200;
   ligar_led(valor_convertido);
   tone(porta_buzzer, valor_convertido_frequencia , 200);
-  if(digitalRead(botao1 == 0)){
+  if(digitalRead(botao1) == 0){  
     armazena(valor_convertido_frequencia);
   }
-  if(digitalRead(botao2 == 0)){
+  if(digitalRead(botao2) == 0){
     leitura_buzzer();
   }
-  delay(100);
+  delay(10);
 }
