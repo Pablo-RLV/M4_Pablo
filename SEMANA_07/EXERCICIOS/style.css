@@ -1,0 +1,32 @@
+.body{
+    background-color: #e0e0e0;
+}
+.titulo{
+    color: green
+}
+.subtitle{
+    text-align: center;
+}
+.cor1{
+    color: blue;
+}
+.cor2{
+    color: red;
+}
+.metade1{
+    width:50%;
+    float:left;
+}
+.metade2{
+    width:50%;
+    float:right;
+}
+.imagens{
+    text-align: center;
+    line-height: 0%;
+}
+.icons{
+    height: 20px;
+    width: 50px;
+    border: 1px solid black;
+}
