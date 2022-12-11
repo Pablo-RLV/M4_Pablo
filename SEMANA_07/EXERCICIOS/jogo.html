@@ -45,7 +45,7 @@
     <center>
         <h1 class='titulo'>Quem clica mais rápido?</h1>
         <div>
-            <!-- <a href="/"> -->
+            <!-- <a href='/'> -->
                 <input type='button' id='reiniciar' class='btn btn-success' value='Reiniciar' onclick='reiniciar()'>
             <!-- </a> -->
         </div>
@@ -74,7 +74,7 @@
                 <br>
             </div>
             <br>
-            <!-- <a href="/"> -->
+            <!-- <a href='/'> -->
                 <input type='button' id='botao1' class='btn btn-primary' value='Pressione' onclick='jogador1()'>
             <!-- </a> -->
         </div>
@@ -103,7 +103,7 @@
                 <br>
             </div>
             <br>
-            <!-- <a href="/"> -->
+            <!-- <a href='/'> -->
                 <input type='button' id='botao2' class='btn btn-danger' value='Pressione' onclick='jogador2()'>
             <!-- </a> -->
         </div>
@@ -114,6 +114,7 @@
     var contador1 = 0;
     var contador2 = 0;
     var finalizou = 0;
+    const link = window.location.href;
     function jogador1(){
         if(contador1 < 10 && contador2 < 10){
         contador1++;
@@ -123,7 +124,7 @@
             if(finalizou == 0){
                 alert('O jogador 1 venceu!');
             }
-            // $('#botao1').prop('href', '/J1');
+            direcionar_url('J1');
             finalizou = 1;
             encerrar();
         }
@@ -137,7 +138,7 @@
             if(finalizou == 0){
                 alert('O jogador 2 venceu!');
             }
-            // $('#botao2').prop('href', '/J2');
+            direcionar_url('J2');
             finalizou = 1;
             encerrar();
         }
@@ -156,6 +157,9 @@
             $('#1-' + String(i)).prop('src', 'https://i0.wp.com/www.multarte.com.br/wp-content/uploads/2018/12/fundo-branco-liso2-1024x1024.jpg?resize=696%2C696&ssl=1');
             $('#2-' + String(i)).prop('src', 'https://i0.wp.com/www.multarte.com.br/wp-content/uploads/2018/12/fundo-branco-liso2-1024x1024.jpg?resize=696%2C696&ssl=1');
         }
+    }
+    function direcionar_url(ganhador){
+        window.location = link + '/' + ganhador;
     }
 </script>
 </html>
