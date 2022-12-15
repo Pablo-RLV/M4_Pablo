@@ -14,7 +14,7 @@ function draw() {
     cor3 = controle/2;
     x_1 = OFFSET_X + cos(dict.angle_1/2) * dict.scalar_1;
     y_1 = OFFSET_Y + sin(dict.angle_1/2) * dict.scalar_1;
-    x_2 = OFFSET_X + sin(dict.angle_2/2) * dict.scalar_2;
+    x_2 = OFFSET_X + sin(dict.angle_2/2) * dict.scalar_2;   
     y_2 = OFFSET_Y + cos(dict.angle_2/2) * dict.scalar_2;
     for (var key in dict) {
         dict[key] += SPEED;
